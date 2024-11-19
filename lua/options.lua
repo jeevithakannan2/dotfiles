@@ -1,6 +1,8 @@
 -- Vim options ( which is set in .vim )
 
 
+vim.o.updatetime = 500
+
 -- Nerd fonts installed in terminal
 vim.g.have_nerd_font = true
 
@@ -24,7 +26,7 @@ vim.opt.shiftwidth = 4
 -- Enable undo even after closing and reopening the file
 vim.opt.undofile = true
 
--- Signcolumn allows you to show errors and warnings inline 
+-- Signcolumn allows you to show errors and warnings inline
 vim.opt.signcolumn = "yes"
 
 -- Configure how new splits should be opened
@@ -40,3 +42,5 @@ vim.opt.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 20
 
+-- Set tab line 0 = No tabline, 1 = Only when multiple tabs, 2 = Always
+vim.opt.showtabline = 1
