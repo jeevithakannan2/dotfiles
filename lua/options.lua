@@ -1,6 +1,11 @@
 -- Vim options ( which is set in .vim )
 
+-- Disable netrw for nvim-tree
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
+-- optionally enable 24-bit colour
+vim.opt.termguicolors = true
 vim.o.updatetime = 500
 
 -- Nerd fonts installed in terminal

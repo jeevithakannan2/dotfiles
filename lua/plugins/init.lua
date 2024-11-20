@@ -8,5 +8,6 @@ return {
 	require("plugins.project"),
 	require("plugins.cmp"),
 	require("plugins.lspsaga"),
+	require("plugins.nvim-tree"),
 	"lambdalisue/vim-suda",
 }
