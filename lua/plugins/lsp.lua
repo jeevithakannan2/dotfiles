@@ -58,6 +58,9 @@ return {
 			capabilities = capabilities,
 		})
 
+		-- Dart LSP ( Flutter )
+		lspconfig.dartls.setup {}
+
 		-- Lua LSP
 		lspconfig.lua_ls.setup({
 			settings = {
@@ -67,9 +70,6 @@ return {
 					},
 					diagnostics = {
 						globals = { "vim" }, -- Recognize `vim` as a global
-					},
-					workspace = {
-						library = vim.api.nvim_get_runtime_file("", true), -- Make server aware of Neovim runtime files
 					},
 				},
 			},

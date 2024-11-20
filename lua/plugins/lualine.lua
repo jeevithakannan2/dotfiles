@@ -4,7 +4,9 @@ return {
 	event = "VimEnter",
 	config = function()
 		require("lualine").setup({
-			options = { theme = "catppuccin" },
+			options = {
+				theme = "catppuccin"
+			},
 		})
 	end,
 }

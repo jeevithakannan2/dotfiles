@@ -5,6 +5,7 @@ return {
 		require("lspsaga").setup({
 			ui = {
 				border = "rounded",
+				kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
 			},
 		})
 	end,
