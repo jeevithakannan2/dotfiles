@@ -44,7 +44,7 @@ copy_configs() {
 install_dep() {
     sudo pacman -S --needed --noconfirm base-devel xorg-server libxinerama libxft imlib2 \
         cmake libev xcb-util-image libconfig uthash xorg-xinit meson \
-        xcb-util-renderutil unzip polkit mate-polkit feh alacritty rofi xorg-xsetroot iw
+        xcb-util-renderutil unzip polkit mate-polkit feh alacritty rofi xorg-xsetroot iw xclip clipmenu
 }
 
 xinitrc() {
@@ -52,7 +52,7 @@ xinitrc() {
         mv "$HOME/.xinitrc" "$HOME/.xinitrc.bak"
     fi
 
-    cat << EOF > "$HOME/.xinitrc"
+    cat <<EOF >"$HOME/.xinitrc"
 export XDG_SESSION_TYPE=x11
 
 exec dwm
@@ -89,11 +89,11 @@ install_fonts() {
 }
 
 main() {
-    if command -v pacman > /dev/null; then
+    if command -v pacman >/dev/null; then
         echo "Arch System detected"
         sudo pacman -Syu --noconfirm
 
-        if command -v git > /dev/null; then
+        if command -v git >/dev/null; then
             echo "Git found in system"
             gitclone
         else
