@@ -104,6 +104,8 @@ static const char *const autostart[] = {
  // "sh", "-c", "xidlehook --detect-sleep --not-when-audio --not-when-fullscreen --timer 900 'slock' ''", NULL, // Create a service instead of autostarting with dwm
   "sh", "-c", "~/.config/bar.sh", NULL,
   "sh", "-c", "feh --bg-fill ~/.wallpaper.png", NULL,
+  "xset", "-dpms", NULL,
+  "xset", "s", "off", NULL,
   NULL
 };
 
