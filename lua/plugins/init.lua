@@ -9,5 +9,6 @@ return {
 	require("plugins.cmp"),
 	require("plugins.lspsaga"),
 	require("plugins.nvim-tree"),
+	"jiangmiao/auto-pairs",
 	"lambdalisue/vim-suda",
 }

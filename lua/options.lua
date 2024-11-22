@@ -23,10 +23,17 @@ vim.opt.number = true
 vim.opt.mouse = "a"
 
 -- Set intendation to 4
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 4
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	command = "setlocal tabstop=4 shiftwidth=4 softtabstop=4",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "dart",
+	command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2",
+})
+
 vim.opt.autoindent = true
-vim.opt.shiftwidth = 4
 
 -- Enable undo even after closing and reopening the file
 vim.opt.undofile = true
