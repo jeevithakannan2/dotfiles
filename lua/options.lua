@@ -13,7 +13,7 @@ vim.g.have_nerd_font = true
 
 -- Sync clipboard with OS
 vim.schedule(function()
-	vim.opt.clipboard = "unnamedplus"
+    vim.opt.clipboard = "unnamedplus"
 end)
 
 -- Make the numbers appear next to line
@@ -21,17 +21,6 @@ vim.opt.number = true
 
 -- Enable mouse mode
 vim.opt.mouse = "a"
-
--- Set intendation to 4
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	command = "setlocal tabstop=4 shiftwidth=4 softtabstop=4",
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "dart",
-	command = "setlocal tabstop=2 shiftwidth=2 softtabstop=2",
-})
 
 vim.opt.autoindent = true
 
