@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 if command -v fastfetch >/dev/null; then
-	fastfetch
+    fastfetch
 fi
 
 if [ -f /usr/share/bash-completion/bash_completion ]; then
-	. /usr/share/bash-completion/bash_completion
+    . /usr/share/bash-completion/bash_completion
 fi
 
 #######################################################
@@ -38,7 +38,7 @@ bind "set show-all-if-ambiguous on"
 
 # Set the default editor
 export EDITOR=nvim
-export VISUAL=neovide
+export VISUAL=nvim
 
 # To have colors for ls and all grep commands such as grep, egrep and zgrep
 export CLICOLOR=1
@@ -74,6 +74,7 @@ alias cls='clear'
 alias multitail='multitail --no-repeat -c'
 alias vi='nvim'
 alias vim='nvim'
+alias cat='bat'
 
 alias home='cd ~'
 alias cd..='cd ..'
@@ -127,7 +128,7 @@ alias f="find . | grep "
 
 # Alias grep to rg if ripgrep is installed
 if command -v rg &>/dev/null; then
-	alias grep='rg'
+    alias grep='rg'
 fi
 
 #######################################################
@@ -136,22 +137,22 @@ fi
 
 # Automatically do an ls after each cd, z, or zoxide
 cd() {
-	if [ -n "$1" ]; then
-		builtin cd "$@" && ls
-	else
-		builtin cd ~ && ls
-	fi
+    if [ -n "$1" ]; then
+        builtin cd "$@" && ls
+    else
+        builtin cd ~ && ls
+    fi
 }
 
 gcom() {
-	git add .
-	git commit -m "$1"
+    git add .
+    git commit -m "$1"
 }
 
 lazyg() {
-	git add .
-	git commit -m "$1"
-	gi
+    git add .
+    git commit -m "$1"
+    gi
 }
 
 eval "$(starship init bash)"
