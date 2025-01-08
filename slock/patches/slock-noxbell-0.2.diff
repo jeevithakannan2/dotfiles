@@ -1,0 +1,38 @@
+From f8bd65f192bc09fddcbc3d5a61f4dd2bba283adf Mon Sep 17 00:00:00 2001
+From: John Doe <bankai671@proton.me>
+Date: Mon, 19 Feb 2024 22:01:05 +0100
+Subject: [PATCH] add bell sound configuration
+
+---
+ config.h | 3 +++
+ slock.c  | 3 ++-
+ 2 files changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/config.h b/config.h
+index 9855e21..b32a2cf 100644
+--- a/config.h
++++ b/config.h
+@@ -10,3 +10,6 @@ static const char *colorname[NUMCOLS] = {
+ 
+ /* treat a cleared input like a wrong password (color) */
+ static const int failonclear = 1;
++
++/* enable or disable (1 means enable, 0 disable) bell sound when password is incorrect */
++static const int xbell = 0;
+diff --git a/slock.c b/slock.c
+index 5ae738c..f40ea23 100644
+--- a/slock.c
++++ b/slock.c
+@@ -165,7 +165,8 @@ readpw(Display *dpy, struct xrandr *rr, struct lock **locks, int nscreens,
+ 				else
+ 					running = !!strcmp(inputhash, hash);
+ 				if (running) {
+-					XBell(dpy, 100);
++					if (xbell == 1)
++						XBell(dpy, 100);
+ 					failure = 1;
+ 				}
+ 				explicit_bzero(&passwd, sizeof(passwd));
+-- 
+2.43.0
+
