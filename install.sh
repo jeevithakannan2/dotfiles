@@ -9,7 +9,7 @@ install_deps() {
     makepkg -si --noconfirm
   fi
   paru
-  paru -S hyprland xdg-desktop-portal-hyprland waybar hyprpaper hyprlock hyprshot hypridle wlogout wttrbar waybar-module-pacman-updates-git foot mate-polkit wofi --needed --noconfirm
+  paru -S hyprland xdg-desktop-portal-hyprland waybar hyprpaper hyprlock hyprshot hypridle wlogout wttrbar waybar-module-pacman-updates-git foot hyprpolkitagent-bin wofi --needed --noconfirm
 }
 
 git_clone() {
@@ -35,7 +35,7 @@ copy_configs() {
 if command -v pacman &>/dev/null; then
   echo "Using pacman !!"
   install_deps
-  if [$? -ne 0]; then
+  if [ $? -ne 0 ]; then
     echo "Error installing dependencies !!"
     exit 1
   fi
