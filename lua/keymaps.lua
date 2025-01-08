@@ -10,7 +10,7 @@ vim.keymap.set('n', '<leader>e', function() nvim_tre.tree.toggle() end, { desc =
 vim.keymap.set('n', '<ESC>', ':noh<CR>', { noremap = true, silent = true })
 
 -- Map `K` to `Lspsaga` hover doc
-vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<M-CR>', '<cmd>Lspsaga hover_doc<CR>', { noremap = true, silent = true })
 
 -- Fidget
 vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, { desc = "LSP Code Action" })
@@ -24,5 +24,5 @@ vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help ta
 
 -- Telescope projects keymap
 vim.keymap.set("n", "<leader>fp", function()
-	require("telescope").extensions.projects.projects()
+  require("telescope").extensions.projects.projects()
 end, { noremap = true, silent = true, desc = "Find Projects" })
