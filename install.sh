@@ -9,7 +9,7 @@ install_deps() {
     makepkg -si --noconfirm
   fi
   paru
-  paru -S hyprland xdg-desktop-portal-hyprland waybar hyprpaper hyprlock hyprshot hypridle wlogout wttrbar waybar-module-pacman-updates-git foot hyprpolkitagent-git wofi --needed --noconfirm
+  paru -S hyprland xdg-desktop-portal-hyprland waybar hyprpaper hyprlock hyprshot hypridle wlogout wttrbar waybar-module-pacman-updates-git foot hyprpolkitagent-git wofi cliphist --needed --noconfirm
 }
 
 git_clone() {
