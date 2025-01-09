@@ -10,7 +10,6 @@ theme=catppuccin-mocha-blue
 EOF
 
 mkdir -p "$HOME/.config/qt6ct/colors"
-
 curl -Lo "$HOME/.config/qt6ct/colors/catppuccin-mocha-blue.conf" "https://github.com/catppuccin/qt5ct/raw/refs/heads/main/themes/catppuccin-mocha-blue.conf"
 
 cat <<EOF > "$HOME/.config/qt6ct/qt6ct.conf"
