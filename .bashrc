@@ -155,7 +155,13 @@ lazyg() {
     gi
 }
 
+ssh-auth() {
+    if [ -z "$SSH_AUTH_SOCK" ]; then
+        eval $(ssh-agent) > /dev/null
+        ssh-add ~/.ssh/id_rsa > /dev/null
+    fi
+}
+
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
-. "$HOME/.cargo/env"
