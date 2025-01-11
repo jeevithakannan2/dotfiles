@@ -25,9 +25,11 @@ prompt() {
     printf "%b\n" "Jeev DotFiles Installer !!"
     printf "%b\n" "Choose what to install"
     printf "%b\n" "1. Hypr Catppuccin"
-    printf "%b\n" "2. QT theme Catppuccin"
+    printf "%b\n" "2. Bash Prompt"
+    printf "%b\n" "3. QT theme Catppuccin"
+    printf "%b\n" "4. All of the above"
     printf "%b\n" "0. Exit"
-    printf "%b" "Your choice [ 0-2 ]: "
+    printf "%b" "Your choice [ 0-4 ]: "
     read -r choice
 }
 
@@ -39,7 +41,15 @@ while [ "$choice" != "0" ]; do
             ./scripts/hypr.sh
             ;;
         2)
+            ./scripts/bash-prompt.sh
+            ;;
+        3)
             ./scripts/qt-theme.sh
+            ;;
+        4)
+            ./scripts/hypr.sh
+            ./scripts/qt-theme.sh
+            ./scripts/bash-prompt.sh
             ;;
         *)
             printf "%b\n" "Invalid choice. Please select a valid option."
