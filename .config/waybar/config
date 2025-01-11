@@ -10,7 +10,7 @@
   // "modules-left": ["custom/launcher", "hyprland/workspaces", "hyprland/window"],
   "modules-left": ["hyprland/workspaces", "hyprland/window"],
   "modules-center": ["clock"],
-  "modules-right": ["custom/weather","custom/updates", "backlight", "temperature", "cpu", "memory", "battery", "pulseaudio", "idle_inhibitor", "network", "tray", "custom/power"],
+  "modules-right": ["custom/weather","custom/updates", "backlight", "temperature", "cpu", "memory", "battery", "pulseaudio", "idle_inhibitor", "tray", "custom/power"],
 
   // Modules configuration
   "hyprland/workspaces": {
