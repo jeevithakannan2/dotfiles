@@ -1,4 +1,4 @@
 *.o
 dwm
-slstatus
+slstatus/slstatus
 slock/config.h
