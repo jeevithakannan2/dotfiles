@@ -2,11 +2,6 @@
 
 DOTFILES_LOCATION="$HOME/jeev-dotfiles"
 
-if ! command -v pacman >/dev/null; then
-    printf "%b\n" "Only Arch-based distributions are supported as of now !!"
-    exit 1
-fi
-
 if [ -d "$DOTFILES_LOCATION" ]; then
     printf "%b\n" "$DOTFILES_LOCATION already exists. Do you want to remove it? [Y\n]"
     read -r choice
@@ -28,9 +23,10 @@ prompt() {
     printf "%b\n" "2. Bash Prompt"
     printf "%b\n" "3. QT theme Catppuccin"
     printf "%b\n" "4. DWM Catppuccin"
-    printf "%b\n" "5. All of the above"
+    printf "%b\n" "5. Nvim configuration"
+    printf "%b\n" "6. All of the above"
     printf "%b\n" "0. Exit"
-    printf "%b" "Your choice [ 0-5 ]: "
+    printf "%b" "Your choice [ 0-6 ]: "
     read -r choice
 }
 
@@ -51,10 +47,14 @@ while [ "$choice" != "0" ]; do
             ./scripts/dwm.sh
             ;;
         5)
+            ./scripts/nvim.sh
+            ;;
+        6)
             ./scripts/hypr.sh
             ./scripts/qt-theme.sh
             ./scripts/bash-prompt.sh
             ./scripts/dwm.sh
+            ./scripts/nvim.sh
             ;;
         *)
             printf "%b\n" "Invalid choice. Please select a valid option."
