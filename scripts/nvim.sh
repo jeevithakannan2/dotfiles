@@ -13,7 +13,7 @@ install_deps() {
 
     package_manager=$(command -v apt-get || true)
     if [ -n "$package_manager" ]; then
-        "$ESCALATION_TOOL" "$package_manager" install -y build-essential npm
+        "$ESCALATION_TOOL" "$package_manager" install -y build-essential npm libfuse2
         curl -sSLo /tmp/nvim.appimage https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
         chmod u+x /tmp/nvim.appimage
         "$ESCALATION_TOOL" mv /tmp/nvim.appimage /usr/local/bin/nvim
