@@ -25,8 +25,10 @@ install_deps() {
     package_manager=$(command -v apt-get || true)
     if [ -n "$package_manager" ]; then
         "$ESCALATION_TOOL" "$package_manager" install -y bash bash-completion tar bat tree unzip fontconfig git zoxide trash-cli
+        mkdir -p ~/.local/bin
+        ln -s /usr/bin/batcat ~/.local/bin/bat
         curl -sS https://starship.rs/install.sh | sh
-	return 0
+        return 0
     fi
 
     return 1
