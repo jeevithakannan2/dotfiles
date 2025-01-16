@@ -55,6 +55,10 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 export PATH="$PATH:$HOME/.local/bin"
 
+if uname -r | grep -q WSL; then
+    export GPG_TTY=$(tty)
+fi
+
 #######################################################
 # MACHINE SPECIFIC ALIAS'S
 #######################################################
@@ -157,11 +161,10 @@ lazyg() {
 
 ssh-auth() {
     if [ -z "$SSH_AUTH_SOCK" ]; then
-        eval $(ssh-agent) > /dev/null
-        ssh-add ~/.ssh/id_rsa > /dev/null
+        eval $(ssh-agent) >/dev/null
+        ssh-add ~/.ssh/id_rsa >/dev/null
     fi
 }
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
-
