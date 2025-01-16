@@ -1,10 +1,6 @@
 # Jeev DotFiles
 
-My personal dot files with installer for easy installation in arch based systems.
-
->[!NOTE]
->The installer works only in arch based systems.
->You can modify the script to your own distribution and needs.
+My personal dot files with installer for easy installation.
 
 ## 🚀 Getting Started
 
