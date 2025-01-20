@@ -6,7 +6,7 @@ My personal dot files with installer for easy installation.
 
 To get a my dots you can run the installation script:
 ```bash
-curl -fsL https://github.com/jeevithakannan2/dotfiles/releases/latest/download/install.sh | sh
+curl -fsLo /tmp/jeev-installer.sh https://github.com/jeevithakannan2/dotfiles/releases/latest/download/install.sh && sh /tmp/jeev-installer.sh
 ```
 
 ## 🐞 Issues and Feedback
