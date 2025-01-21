@@ -2,10 +2,11 @@
 
 DOTFILES_LOCATION="$HOME/jeev-dotfiles"
 VERSION="v1.2.1"
+TEMP_FILE=$(mktemp)
 
-curl -Lo "/tmp/${VERSION}.tar.gz" "https://github.com/jeevithakannan2/dotfiles/archive/refs/tags/${VERSION}.tar.gz"
+curl -Lo "$TEMP_FILE" "https://github.com/jeevithakannan2/dotfiles/archive/refs/tags/${VERSION}.tar.gz"
 mkdir -p "$DOTFILES_LOCATION"
-tar xf "/tmp/$VERSION.tar.gz" --strip-components=1 --directory="$DOTFILES_LOCATION"
+tar xf "$TEMP_FILE" --strip-components=1 --directory="$DOTFILES_LOCATION"
 cd "$DOTFILES_LOCATION" || exit 1
 
 prompt() {
@@ -55,4 +56,5 @@ while [ "$choice" != "0" ]; do
     prompt
 done
 
-printf "%b\n" "Exiting. Thank you for using Jeev DotFiles Installer!"
+rm -rf "$TEMP_FILE"
+printf "%b\n" "Exiting. Thank you for using Jeev DotFiles Installer !!"
