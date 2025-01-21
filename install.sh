@@ -1,7 +1,7 @@
 #!/bin/sh -e
 
 DOTFILES_LOCATION="$HOME/jeev-dotfiles"
-VERSION="v1.2.1"
+VERSION="v1.2.2"
 TEMP_FILE=$(mktemp)
 
 curl -Lo "$TEMP_FILE" "https://github.com/jeevithakannan2/dotfiles/archive/refs/tags/${VERSION}.tar.gz"
