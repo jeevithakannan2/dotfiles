@@ -121,8 +121,11 @@ alias 755='chmod -R 755'
 alias 777='chmod -R 777'
 
 # Search command line history
-alias h="history | grep "
-
+# alias h='history | grep '
+# Alias is not working as intended https://github.com/jeevithakannan2/dotfiles/issues/21
+h() {
+    history | grep "$1"
+}
 # Search running processes
 alias p="ps aux | grep "
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
