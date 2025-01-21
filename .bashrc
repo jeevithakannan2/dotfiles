@@ -55,6 +55,11 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 export PATH="$PATH:$HOME/.local/bin"
 
+# Add jvm bin because jlink and other binary are not symlinked by default in arch linux
+if grep -q "arch" "/etc/os-release"; then
+    export PATH="$PATH:/usr/lib/jvm/default/bin"
+fi
+
 if uname -r | grep -q WSL; then
     export GPG_TTY=$(tty)
 fi
