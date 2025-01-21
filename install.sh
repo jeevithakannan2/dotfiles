@@ -1,19 +1,12 @@
 #!/bin/sh -e
 
 DOTFILES_LOCATION="$HOME/jeev-dotfiles"
+VERSION="v1.2.1"
+TEMP_FILE=$(mktemp)
 
-if [ -d "$DOTFILES_LOCATION" ]; then
-    printf "%b\n" "$DOTFILES_LOCATION already exists. Do you want to remove it? [Y\n]"
-    read -r choice
-    choice=${choice:-Y}
-    if [ "$choice" = "y" ] || [ "$choice" = "Y" ]; then
-        rm -rf "$DOTFILES_LOCATION"
-    else
-        exit 0
-    fi
-fi
-
-git clone "https://github.com/jeevithakannan2/dotfiles" "$DOTFILES_LOCATION"
+curl -Lo "$TEMP_FILE" "https://github.com/jeevithakannan2/dotfiles/archive/refs/tags/${VERSION}.tar.gz"
+mkdir -p "$DOTFILES_LOCATION"
+tar xf "$TEMP_FILE" --strip-components=1 --directory="$DOTFILES_LOCATION"
 cd "$DOTFILES_LOCATION" || exit 1
 
 prompt() {
@@ -63,4 +56,5 @@ while [ "$choice" != "0" ]; do
     prompt
 done
 
-printf "%b\n" "Exiting. Thank you for using Jeev DotFiles Installer!"
+rm -rf "$TEMP_FILE"
+printf "%b\n" "Exiting. Thank you for using Jeev DotFiles Installer !!"
