@@ -159,7 +159,7 @@ gcom() {
 lazyg() {
     git add .
     git commit -m "$1"
-    gi
+    git push
 }
 
 ssh-auth() {
