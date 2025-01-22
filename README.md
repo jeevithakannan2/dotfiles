@@ -2,6 +2,11 @@
 
 My personal dot files with installer for easy installation.
 
+Hyprland Preview
+
+![Preview](/.github/desktop.png)
+![Preview](/.github/terminal.png)
+
 ## 🚀 Getting Started
 
 To get a my dots you can run the installation script:
