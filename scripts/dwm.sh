@@ -43,9 +43,6 @@ install() {
     cd "$DWMDIR" || exit 1
     sudo make clean install
 
-    #    cd "$DWMDIR/slstatus" || exit 1
-    #    sudo make clean install
-
     cd "$DWMDIR/slock" || exit 1
     sudo make clean install
 
@@ -63,13 +60,13 @@ install() {
 main() {
     sudo pacman -Syu --noconfirm
 
-    printf "%b\n" "Installing dependencies for dwm and slstatus"
+    printf "%b\n" "Installing dependencies for dwm"
     install_dep
 
     printf "%b\n" "Setting up .xinitrc"
     xinitrc
 
-    printf "%b\n" "Compiling and installing dwm and slstatus"
+    printf "%b\n" "Compiling and installing dwm"
     install
 
     printf "%b\n" "Copying configs"
