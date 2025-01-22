@@ -64,13 +64,13 @@ install() {
     success_msg "Successfully installed picom !!"
 }
 
-info_msg "Installing dependencies for dwm and slstatus !!"
+info_msg "Installing dependencies for dwm !!"
 install_dep
 
 info_msg "Setting up .xinitrc !!"
 xinitrc
 
-info_msg "Compiling and installing dwm and slstatus !!"
+info_msg "Compiling and installing dwm !!"
 install
 
 info_msg "Copying config files !!"
