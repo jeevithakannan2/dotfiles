@@ -1,9 +1,7 @@
 #!/bin/sh -e
 
-ESCALATION_TOOL=$(command -v doas || command -v sudo)
-
 install_deps() {
-    printf "%b\n" "Installing dependencies"
+    info_msg "Installing dependencies nvim and dependencies !!"
 
     package_manager=$(command -v pacman || true)
     if [ -n "$package_manager" ]; then
@@ -17,24 +15,20 @@ install_deps() {
         curl -sSLo /tmp/nvim.appimage https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
         chmod u+x /tmp/nvim.appimage
         "$ESCALATION_TOOL" mv /tmp/nvim.appimage /usr/local/bin/nvim
-	return 0
+        return 0
     fi
 
     return 1
 }
 
 if ! install_deps; then
-    printf "%s\n" "Unsupported package manager"
+    error_msg "Unsupported package manager !!"
 fi
 
-printf "%b\n" "Successfully installed dependencies"
+success_msg "Successfully installed dependencies !!"
 
-mkdir -p "$HOME/.config"
-if [ -d "$HOME/.config/nvim" ]; then
-	cp -r "$HOME/.config/nvim" "$HOME/.config/nvim.bak"
-	rm -rf "$HOME/.config/nvim"
-fi
+backup "$CONFIG_DIR/nvim"
 
-cp -r "$(pwd)/../.config/nvim" "$HOME/.config" 
+cp -r "$DOTFILES_CONFIG/nvim" "$CONFIG_DIR"
 
-printf "%b\n" "Successfully copied nvim config"
+success_msg "Successfully copied nvim config !!"
