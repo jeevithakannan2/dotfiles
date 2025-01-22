@@ -1,20 +1,10 @@
 #!/bin/sh -e
 
 BASHRC="$HOME/.bashrc"
-STARSHIP_CONFIG="$HOME/.config/starship.toml"
-
-ESCALATION_TOOL=$(command -v doas || command -v sudo)
-
-backup() {
-    if [ -e "$1" ] || [ -d "$1" ]; then
-        printf "%b\n" "Creating backup $1 -> $1.bak"
-        cp -r "$1" "${1}.bak"
-        rm -rf "$1"
-    fi
-}
+STARSHIP_CONFIG="$CONFIG_DIR/starship.toml"
 
 install_deps() {
-    printf "%b\n" "Installing dependencies"
+    info_msg "Installing dependencies !!"
 
     package_manager=$(command -v pacman || true)
     if [ -n "$package_manager" ]; then
@@ -35,14 +25,14 @@ install_deps() {
 }
 
 if ! install_deps; then
-    printf "%s\n" "Unsupported package manager"
+    error_msg "Unsupported package manager !!"
 fi
 
-printf "%b\n" "Successfully installed dependencies"
+success_msg "Successfully installed dependencies !!"
 
 backup "$BASHRC"
 backup "$STARSHIP_CONFIG"
 
-printf "%b\n" "Creating symlinks"
-ln -sfv "$(pwd)/../.bashrc" "$BASHRC" || printf "%s\n" "Failed to link $BASHRC"
-ln -sfv "$(pwd)/../.config/starship.toml" "$STARSHIP_CONFIG" || printf "%s\n" "Failed to link $STARSHIP_CONFIG"
+info_msg "Creating symlinks"
+ln -sfv "$DOTFILES/.bashrc" "$BASHRC" || warning_msg "Failed to link $BASHRC !!"
+ln -sfv "$DOTFILES_CONFIG/starship.toml" "$STARSHIP_CONFIG" || warning_msg "Failed to link $STARSHIP_CONFIG !!"

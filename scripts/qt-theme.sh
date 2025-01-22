@@ -1,20 +1,21 @@
 #!/bin/sh -e
 
-mkdir -p "$HOME/.config/Kvantum/catppuccin-mocha-blue"
-curl -Lo "$HOME/.config/Kvantum/catppuccin-mocha-blue/catppuccin-mocha-blue.kvconfig" "https://github.com/catppuccin/Kvantum/raw/refs/heads/main/themes/catppuccin-mocha-blue/catppuccin-mocha-blue.kvconfig"
-curl -Lo "$HOME/.config/Kvantum/catppuccin-mocha-blue/catppuccin-mocha-blue.svg" "https://github.com/catppuccin/Kvantum/raw/refs/heads/main/themes/catppuccin-mocha-blue/catppuccin-mocha-blue.svg"
+info_msg "Cloning theme files !!"
+mkdir -p "$CONFIG/Kvantum/catppuccin-mocha-blue"
+curl -Lo "$CONFIG/Kvantum/catppuccin-mocha-blue/catppuccin-mocha-blue.kvconfig" "https://github.com/catppuccin/Kvantum/raw/refs/heads/main/themes/catppuccin-mocha-blue/catppuccin-mocha-blue.kvconfig"
+curl -Lo "$CONFIG/Kvantum/catppuccin-mocha-blue/catppuccin-mocha-blue.svg" "https://github.com/catppuccin/Kvantum/raw/refs/heads/main/themes/catppuccin-mocha-blue/catppuccin-mocha-blue.svg"
 
-cat <<EOF > "$HOME/.config/Kvantum/kvantum.kvconfig"
+cat <<EOF >"$CONFIG/Kvantum/kvantum.kvconfig"
 [General]
 theme=catppuccin-mocha-blue
 EOF
 
-mkdir -p "$HOME/.config/qt6ct/colors"
-curl -Lo "$HOME/.config/qt6ct/colors/catppuccin-mocha-blue.conf" "https://github.com/catppuccin/qt5ct/raw/refs/heads/main/themes/catppuccin-mocha-blue.conf"
+mkdir -p "$CONFIG/qt6ct/colors"
+curl -Lo "$CONFIG/qt6ct/colors/catppuccin-mocha-blue.conf" "https://github.com/catppuccin/qt5ct/raw/refs/heads/main/themes/catppuccin-mocha-blue.conf"
 
-cat <<EOF > "$HOME/.config/qt6ct/qt6ct.conf"
+cat <<EOF >"$CONFIG/qt6ct/qt6ct.conf"
 [Appearance]
-color_scheme_path=$HOME/.config/qt6ct/colors/catppuccin-mocha-blue.conf
+color_scheme_path=$CONFIG/qt6ct/colors/catppuccin-mocha-blue.conf
 custom_palette=true
 icon_theme=Papirus-Dark
 standard_dialogs=default
@@ -26,4 +27,7 @@ general="Noto Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,Regular"
 icon_theme=breeze
 EOF
 
-sudo pacman -S --needed --noconfirm kvantum qt6ct
+info_msg "Installing dependencies !!"
+"$ESCALATION_TOOL" pacman -S --needed --noconfirm kvantum qt6ct
+
+success_msg "Theme setup successful !!"
