@@ -46,9 +46,6 @@ install() {
     "$ESCALATION_TOOL" make clean install
     success_msg "Successfully installed DWM !!"
 
-    #    cd "$DWMDIR/slstatus" || exit 1
-    #    "$ESCALATION_TOOL" make clean install
-
     info_msg "Installing slock !!"
     cd "$DWMDIR/slock"
     "$ESCALATION_TOOL" make clean install
