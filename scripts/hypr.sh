@@ -4,6 +4,7 @@ WAYLAND_CONFIGS="
   hypr
   wlogout
   foot
+  mako
   waybar
   wofi
 "
@@ -16,7 +17,8 @@ install_deps() {
         makepkg -si --noconfirm
     fi
     paru
-    paru -S hyprland xdg-desktop-portal-hyprland waybar hyprpaper hyprlock hyprshot hypridle wlogout wttrbar waybar-module-pacman-updates-git foot hyprpolkitagent wofi cliphist --needed --noconfirm
+    paru -S --needed --noconfirm hyprland xdg-desktop-portal-hyprland hyprpolkitagent hyprpaper hyprlock hyprshot hypridle \
+        wlogout wttrbar waybar-module-pacman-updates-git foot waybar wofi cliphist mako
     success_msg "Successfully installed dependencies !!"
 }
 
