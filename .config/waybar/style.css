@@ -109,9 +109,6 @@ window#waybar {
    color: @flamingo;
 }
 
-#tray, #custom-weather {
-}
-
 #custom-launcher{
         font-size: 20px;
         background-image: url('/home/USER/.config/waybar/launcher.png');
@@ -130,10 +127,4 @@ window#waybar {
     border-style: hidden;
     margin-top:1px;  
 }    
-#custom-keyboard-layout{
-   color:#d08770;
-}   
-#custom-network_traffic{
-   color:#d08770;
-}
 
