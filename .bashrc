@@ -138,6 +138,9 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 # Search files in the current folder
 alias f="find . | grep "
 
+# Get git commits after latest tag
+alias glc="git log \$(git describe --tags --abbrev=0)..HEAD"
+
 # Alias grep to rg if ripgrep is installed
 if command -v rg &>/dev/null; then
     alias grep='rg'
