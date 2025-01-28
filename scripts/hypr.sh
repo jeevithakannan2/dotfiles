@@ -17,4 +17,6 @@ if ! install_deps; then
     error_msg "Error installing dependencies !!"
 fi
 
+cd "$DOTFILES"
+
 stow_link "hypr-config"
