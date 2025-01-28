@@ -1,43 +1,56 @@
 @import 'mocha.css';
 
 * {
-    color: #eceff4;
+    color: @text;
     font-family: "Symbols Nerd Font Mono";
     font-size: 15px;
 }
 
-#custom-weather,
+/* The total waybar not the modules */
+window#waybar {
+    background: transparent;
+}
+
+#workspaces,
 #clock,
+#custom-weather,
+#hardware,
+#configurable,
+#idle_inhibitor,
+#network,
+#tray {
+    border-radius: 10px 10px 10px 10px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+#clock,
+#custom-weather,
 #hardware,
 #configurable,
 #idle_inhibitor,
 #tray {
     padding-left: 7.5px;
     padding-right: 7.5px;
-    border-radius: 10px 10px 10px 10px;
-    background: rgba(0, 0, 0, 0.25);
-}
-
-#workspaces,
-#network {
-    border-radius: 10px 10px 10px 10px;
-    background: rgba(0, 0, 0, 0.25);
-}
-
-window#waybar {
-    background: transparent;
-}
-
-window#waybar.empty #window {
-    background: transparent;
 }
 
 #clock {
     color: @green;
 }
 
-#backlight {
-    color: @yellow;
+#temperature {
+    color: @teal;
+}
+
+#temperature.critical {
+    color: @maroon;
+}
+
+#cpu {
+    color: @green;
+}
+
+#memory {
+    color: @maroon;
 }
 
 #battery {
@@ -65,24 +78,8 @@ window#waybar.empty #window {
     animation-direction: alternate;
 }
 
-#cpu {
-    color: @green;
-}
-
-#memory {
-    color: @maroon;
-}
-
-#network.disabled {
-    color: @red;
-}
-
-#network {
-    color: @green;
-}
-
-#network.disconnected {
-    color: @red;
+#backlight {
+    color: @yellow;
 }
 
 #pulseaudio {
@@ -93,14 +90,15 @@ window#waybar.empty #window {
     color: @overlay0;
 }
 
-#temperature {
-    color: @teal;
-}
-
-#temperature.critical {
-    color: @maroon;
-}
-
 #idle_inhibitor {
     color: @flamingo;
+}
+
+#network {
+    color: @green;
+}
+
+#network.disabled,
+#network.disconnected {
+    color: @red;
 }

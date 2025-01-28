@@ -58,6 +58,13 @@
         "on-scroll-up": "hyprctl dispatch workspace e+1",
         "on-scroll-down": "hyprctl dispatch workspace e-1"
     },
+    "clock": {
+        "format": " {:%I:%M %p} ", //12 hour format
+        "tooltip-format": "<big> {:%A, %d %B %Y }</big>\n<tt><small>{calendar}</small></tt> ",
+        // "format": "{:%H:%M}",	//24 hour format
+        "format-alt": " {:%d/%m/%Y  %H:%M} ",
+        "interval": 60
+    },
     // https://github.com/bjesus/wttrbar
     "custom/weather": {
         "format": "{}",
@@ -66,23 +73,15 @@
         "exec": "wttrbar --location erode",
         "return-type": "json"
     },
-    "idle_inhibitor": {
-        "format": " {icon} ",
-        "format-icons": {
-            "activated": "",
-            "deactivated": ""
-        }
-    },
-    "tray": {
-        "icon-size": 20,
-        "spacing": 5
-    },
-    "clock": {
-        "format": " {:%I:%M %p} ", //12 hour format
-        "tooltip-format": "<big> {:%A, %d %B %Y }</big>\n<tt><small>{calendar}</small></tt> ",
-        // "format": "{:%H:%M}",	//24 hour format
-        "format-alt": " {:%d/%m/%Y  %H:%M} ",
-        "interval": 60
+    "temperature": {
+        "format": "  {temperatureC} ",
+        "format-warning": "  {temperatureC} ",
+        "format-critical": "  {temperatureC} ",
+        "thermal-zone": 7, // Check with: # cat /sys/class/hwmon/hwmon*/temp1_input
+        "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+        "warning-threshold": 75,
+        "critical-threshold": 90,
+        "interval": 3
     },
     "cpu": {
         "format": "  {usage} ",
@@ -95,15 +94,19 @@
         "on-click": "foot -e btop",
         "interval": 3
     },
-    "temperature": {
-        "format": "  {temperatureC} ",
-        "format-warning": "  {temperatureC} ",
-        "format-critical": "  {temperatureC} ",
-        "thermal-zone": 7, // Check with: # cat /sys/class/hwmon/hwmon*/temp1_input
-        "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
-        "warning-threshold": 75,
-        "critical-threshold": 90,
-        "interval": 3
+    "battery": {
+        "format": " {icon} {capacity: >3} ",
+        "states": {
+            "warning": 40,
+            "critical": 20
+        },
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
     },
     "backlight": {
         "format": " {icon} {percent:>3} ",
@@ -125,30 +128,6 @@
         ],
         "on-scroll-down": "brightnessctl -c backlight set 5%-",
         "on-scroll-up": "brightnessctl -c backlight set +5%"
-    },
-    "battery": {
-        "format": " {icon} {capacity: >3} ",
-        "states": {
-            "warning": 40,
-            "critical": 20
-        },
-        "format-icons": [
-            "",
-            "",
-            "",
-            "",
-            ""
-        ]
-    },
-    "network": {
-        "format": "  {bandwidthDownBytes} ",
-        "format-disconnected": "",
-        "family": "ipv4",
-        "min-length": 11,
-        "max-length": 11,
-        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n : {bandwidthUpBytes}\n : {bandwidthDownBytes}",
-        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n : {bandwidthUpBytes}\n : {bandwidthDownBytes}",
-        "interval": 2
     },
     "pulseaudio": {
         "format": " {format_source}{icon} {volume} ",
@@ -173,5 +152,26 @@
         "scroll-step": 5, // %, can be a float
         "on-click": "pavucontrol",
         "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+    "idle_inhibitor": {
+        "format": " {icon} ",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "network": {
+        "format": "  {bandwidthDownBytes} ",
+        "format-disconnected": "",
+        "family": "ipv4",
+        "min-length": 11,
+        "max-length": 11,
+        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n : {bandwidthUpBytes}\n : {bandwidthDownBytes}",
+        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n : {bandwidthUpBytes}\n : {bandwidthDownBytes}",
+        "interval": 2
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 5
     }
 }
