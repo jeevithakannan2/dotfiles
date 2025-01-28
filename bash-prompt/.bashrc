@@ -138,9 +138,6 @@ alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 # Search files in the current folder
 alias f="find . | grep "
 
-# Get git commits after latest tag
-alias glc="git log \$(git describe --tags --abbrev=0)..HEAD"
-
 # Alias grep to rg if ripgrep is installed
 if command -v rg &>/dev/null; then
     alias grep='rg'
@@ -170,9 +167,16 @@ lazyg() {
     git push
 }
 
+# Git commits after latest tag
+gcomaltag() {
+    tag="$(git describe --tags --abbrev=0)"
+    echo -e "\e[1;33mLatest tag -> ${tag}\n\e[0;33m\nCommits after the tag: \e[0m"
+    git log "${tag}"..HEAD
+}
+
 ssh-auth() {
     if [ -z "$SSH_AUTH_SOCK" ]; then
-        eval $(ssh-agent) >/dev/null
+        eval "$(ssh-agent)" >/dev/null
         ssh-add ~/.ssh/id_rsa >/dev/null
     fi
 }
