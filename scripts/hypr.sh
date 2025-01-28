@@ -1,14 +1,5 @@
 #!/bin/sh -e
 
-WAYLAND_CONFIGS="
-  hypr
-  wlogout
-  foot
-  mako
-  waybar
-  wofi
-"
-
 install_deps() {
     info_msg "Installing dependencies !!"
     if ! command -v paru >/dev/null; then
@@ -26,7 +17,4 @@ if ! install_deps; then
     error_msg "Error installing dependencies !!"
 fi
 
-for config in $WAYLAND_CONFIGS; do
-    info_msg "Copying $config -> $CONFIG_DIR"
-    cp -r "$DOTFILES_CONFIG/$config" "$CONFIG_DIR"
-done
+stow_link "hypr-config"

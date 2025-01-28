@@ -33,6 +33,4 @@ success_msg "Successfully installed dependencies !!"
 backup "$BASHRC"
 backup "$STARSHIP_CONFIG"
 
-info_msg "Creating symlinks"
-ln -sfv "$DOTFILES/.bashrc" "$BASHRC" || warning_msg "Failed to link $BASHRC !!"
-ln -sfv "$DOTFILES_CONFIG/starship.toml" "$STARSHIP_CONFIG" || warning_msg "Failed to link $STARSHIP_CONFIG !!"
+stow_link "bash-prompt"

@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-VERSION="v1.3.0"
+VERSION="v1.4.0"
 
 error_msg() {
     printf "\033[1;31m%s\033[0m\n" "$1"
@@ -11,8 +11,11 @@ if [ "$(id -u)" -eq 0 ]; then
     error_msg "Should not be ran as root !"
 fi
 
+if ! command -v stow >/dev/null; then
+    error_msg "Install stow to continue with installation !"
+fi
+
 DOTFILES="$HOME/jeev-dotfiles"
-DOTFILES_CONFIG="$DOTFILES/.config"
 CONFIG_DIR="$HOME/.config"
 TEMP_FILE=$(mktemp) || error_msg "Cannot create temp file"
 ESCALATION_TOOL=$(command -v doas || command -v sudo || error_msg "No escalation tool found")
@@ -40,6 +43,17 @@ backup() {
         info_msg "Creating backup $1 -> $1.bak"
         cp -r "$1" "${1}.bak"
         rm -rf "$1"
+    fi
+}
+
+stow_link() {
+    info_msg "Symlinking files !!"
+
+    if stow -v "$1"; then
+        success_msg "Symlink completed!!"
+    else
+        error_msg "Error while symlinking files view the above error logs for more info !!"
+
     fi
 }
 
