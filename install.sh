@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-VERSION="v1.3.0"
+VERSION="v1.4.0"
 
 error_msg() {
     printf "\033[1;31m%s\033[0m\n" "$1"
@@ -16,7 +16,6 @@ if ! command -v stow >/dev/null; then
 fi
 
 DOTFILES="$HOME/jeev-dotfiles"
-DOTFILES_CONFIG="$DOTFILES/.config"
 CONFIG_DIR="$HOME/.config"
 TEMP_FILE=$(mktemp) || error_msg "Cannot create temp file"
 ESCALATION_TOOL=$(command -v doas || command -v sudo || error_msg "No escalation tool found")
