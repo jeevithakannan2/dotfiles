@@ -29,6 +29,4 @@ success_msg "Successfully installed dependencies !!"
 
 backup "$CONFIG_DIR/nvim"
 
-cp -r "$DOTFILES_CONFIG/nvim" "$CONFIG_DIR"
-
-success_msg "Successfully copied nvim config !!"
+stow_link "nvim-config"
