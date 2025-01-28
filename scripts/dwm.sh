@@ -1,23 +1,6 @@
 #!/bin/sh -e
 
 DWMDIR="$DOTFILES_LOCATION/dwm"
-CONFIGS="
-picom
-rofi
-"
-
-copy_configs() {
-    for config in $CONFIGS; do
-        info_msg "Copying $config -> $CONFIG_DIR !!"
-        cp -r "$DOTFILES_CONFIG/$config" "$CONFIG_DIR"
-    done
-
-    info_msg "Copying $DWMDIR/bar.sh to $CONFIG_DIR !!"
-    cp -f "$DWMDIR/bar.sh" "$CONFIG_DIR"
-    chmod 755 "$CONFIG_DIR/bar.sh"
-
-    success_msg "Successfully copied config files !!"
-}
 
 install_dep() {
     "$ESCALATION_TOOL" pacman -Syu --noconfirm
@@ -73,7 +56,6 @@ xinitrc
 info_msg "Compiling and installing dwm !!"
 install
 
-info_msg "Copying config files !!"
-copy_configs
+stow_link "dwm-config"
 
 warning_msg "Install xidlehook with windrawnwin from https://github.com/realSaltyFish/xidlehook"

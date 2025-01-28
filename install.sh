@@ -11,6 +11,10 @@ if [ "$(id -u)" -eq 0 ]; then
     error_msg "Should not be ran as root !"
 fi
 
+if ! command -v stow >/dev/null; then
+    error_msg "Install stow to continue with installation !"
+fi
+
 DOTFILES="$HOME/jeev-dotfiles"
 DOTFILES_CONFIG="$DOTFILES/.config"
 CONFIG_DIR="$HOME/.config"
@@ -40,6 +44,17 @@ backup() {
         info_msg "Creating backup $1 -> $1.bak"
         cp -r "$1" "${1}.bak"
         rm -rf "$1"
+    fi
+}
+
+stow_link() {
+    info_msg "Symlinking files !!"
+
+    if stow -v "$1"; then
+        success_msg "Symlink completed!!"
+    else
+        error_msg "Error while symlinking files view the above error logs for more info !!"
+
     fi
 }
 
