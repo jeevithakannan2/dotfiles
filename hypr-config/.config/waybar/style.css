@@ -2,42 +2,38 @@
 
 * {
     color: #eceff4;
-    border: 0;
-    border-radius: 0;
-    padding: 0 0;
     font-family: "Symbols Nerd Font Mono";
     font-size: 15px;
-    margin-right: 5px;
-    margin-left: 5px;
-    padding-bottom:2px;
-   }
+}
+
+#custom-weather,
+#clock,
+#hardware,
+#configurable,
+#idle_inhibitor,
+#tray {
+    padding-left: 7.5px;
+    padding-right: 7.5px;
+    border-radius: 10px 10px 10px 10px;
+    background: rgba(0, 0, 0, 0.25);
+}
+
+#workspaces,
+#network {
+    border-radius: 10px 10px 10px 10px;
+    background: rgba(0, 0, 0, 0.25);
+}
 
 window#waybar {
-    background:rgba (0, 0, 0, 0);
-    border-radius: 20px 20px 20px 20px; 
+    background: transparent;
 }
 
-#workspaces button {
-    padding: 2px 0px;
-    border-bottom: 2px;
-    color: #eceff4;
-    border-color: #d8dee9;
-    border-style: solid;
-    margin-top:2px;
+window#waybar.empty #window {
+    background: transparent;
 }
 
-#workspaces button.active {
-    border-color: #81a1c1;
-}
-
-#clock, #battery, #cpu, #memory,#idle_inhibitor, #temperature,#custom-keyboard-layout, #backlight, #network, #pulseaudio, #tray, #window,#custom-launcher,#custom-power,#custom-updates ,#custom-network_traffic,#custom-weather{
-    padding: 0 3px;
-    border-bottom: 2px;
-    border-style: solid;
-}
- 
 #clock {
- color: @green;
+    color: @green;
 }
 
 #backlight {
@@ -81,7 +77,7 @@ window#waybar {
     color: @red;
 }
 
-#network{
+#network {
     color: @green;
 }
 
@@ -106,25 +102,5 @@ window#waybar {
 }
 
 #idle_inhibitor {
-   color: @flamingo;
+    color: @flamingo;
 }
-
-#custom-launcher{
-        font-size: 20px;
-        background-image: url('/home/USER/.config/waybar/launcher.png');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: contain;
-        border-style: hidden;
-}
-
-#custom-power{
-    border-style: hidden;
-    margin-top:2px;    
-}
-
-#window{
-    border-style: hidden;
-    margin-top:1px;  
-}    
-
