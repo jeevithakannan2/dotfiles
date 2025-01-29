@@ -1,0 +1,13 @@
+{
+    "languageserver": {
+        "fish-lsp": {
+            "command": "fish-lsp",
+            "filetypes": [
+                "fish"
+            ],
+            "args": [
+                "start"
+            ]
+        }
+    }
+}

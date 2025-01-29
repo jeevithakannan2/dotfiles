@@ -31,13 +31,9 @@ return {
       })
 
       local lspconfig = require("lspconfig")
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
-      local capabilities = cmp_nvim_lsp.default_capabilities()
       require("mason-lspconfig").setup_handlers({
         function(server)
-          lspconfig[server].setup({
-            capabilities = capabilities,
-          })
+          lspconfig[server].setup {}
         end,
       })
 
@@ -53,7 +49,6 @@ return {
             },
           },
         },
-        capabilities = capabilities,
       })
 
       lspconfig.fish_lsp.setup {}

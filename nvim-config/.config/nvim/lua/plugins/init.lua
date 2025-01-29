@@ -5,7 +5,7 @@ return {
   require("plugins.catppuccin"),
   require("plugins.fidget"),
   require("plugins.project"),
-  require("plugins.cmp"),
+  require("plugins.coc"),
   require("plugins.lspsaga"),
   require("plugins.nvim-tree"),
   require("plugins.mason"),
