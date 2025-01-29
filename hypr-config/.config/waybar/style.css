@@ -11,8 +11,9 @@ window#waybar {
     background: transparent;
 }
 
-#workspaces,
 #clock,
+#workspaces,
+#window,
 #custom-weather,
 #hardware,
 #configurable,
@@ -24,6 +25,7 @@ window#waybar {
 }
 
 #clock,
+#window,
 #custom-weather,
 #hardware,
 #configurable,
@@ -34,7 +36,16 @@ window#waybar {
 }
 
 #clock {
-    color: @green;
+    color: @lavender;
+}
+
+#window {
+    color: @red;
+}
+
+window#waybar.empty #window {
+    color: transparent;
+    background: transparent;
 }
 
 #temperature {
@@ -54,24 +65,37 @@ window#waybar {
 }
 
 #battery {
-    color: @text;
-}
-
-#battery.charging {
     color: @lavender;
 }
 
-@keyframes blink {
+#battery.charging {
+    color: @green;
+}
+
+@keyframes w-blink {
     to {
-        color: @overlay2;
-        background-color: @text;
+        color: @lavender;
     }
 }
 
+@keyframes c-blink {
+    to {
+        color: @yellow;
+    }
+}
+
+#battery.warning:not(.charging) {
+    color: @yellow;
+    animation-name: w-blink;
+    animation-duration: 0.75s;
+    animation-timing-function: linear;
+    animation-iteration-count: 20;
+    animation-direction: alternate;
+}
+
 #battery.critical:not(.charging) {
-    background: @red;
-    color: @text;
-    animation-name: blink;
+    color: @red;
+    animation-name: c-blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
