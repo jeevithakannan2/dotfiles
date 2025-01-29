@@ -1,0 +1,200 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin": "5 5 5 5",
+    "spacing": 5,
+    "modules-left": [
+        "clock",
+        "hyprland/workspaces"
+    ],
+    "modules-center": [
+        "hyprland/window"
+    ],
+    "modules-right": [
+        "custom/weather",
+        "group/hardware",
+        "group/configurable",
+        "idle_inhibitor",
+        "network",
+        "tray"
+    ],
+    "group/hardware": {
+        "orientation": "inherit",
+        "modules": [
+            "temperature",
+            "cpu",
+            "memory",
+            "battery"
+        ]
+    },
+    "group/configurable": {
+        "orientation": "inherit",
+        "modules": [
+            "backlight",
+            "pulseaudio"
+        ]
+    },
+    "clock": {
+        "format": " {:%I:%M %p} ", //12 hour format
+        // "format": "{:%H:%M}",	//24 hour format
+        "format-alt": " {:%B %d  %H:%M} ",
+        "tooltip-format": "<tt>{calendar}</tt>",
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down",
+            "on-click-middle": "shift_reset"
+        },
+        "calendar": {
+            "mode-mon-col": 3,
+            "on-scroll": 1,
+            "format": {
+                "months": "<span color='#ffead3'><b>{}</b></span>",
+                "days": "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+                "today": "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "interval": 60
+    },
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "all-outputs": true,
+        "sort-by-number": true,
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "10": "",
+            "active": "",
+            "default": ""
+        },
+        "persistent-workspaces": {
+            "*": 2
+        },
+        "on-scroll-up": "hyprctl dispatch workspace e+1",
+        "on-scroll-down": "hyprctl dispatch workspace e-1"
+    },
+    "hyprland/window": {
+        "format": " {initialTitle} ",
+        "icon": true
+    },
+    // https://github.com/bjesus/wttrbar
+    "custom/weather": {
+        "format": "{}",
+        "tooltip": true,
+        "interval": 300,
+        "exec": "wttrbar --location erode",
+        "return-type": "json"
+    },
+    "temperature": {
+        "format": "  {temperatureC} ",
+        "format-warning": "  {temperatureC} ",
+        "format-critical": "  {temperatureC} ",
+        "thermal-zone": 7, // Check with: # cat /sys/class/hwmon/hwmon*/temp1_input
+        "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+        "warning-threshold": 75,
+        "critical-threshold": 90,
+        "interval": 3
+    },
+    "cpu": {
+        "format": "  {usage} ",
+        "on-click": "foot -e htop",
+        "interval": 3
+    },
+    "memory": {
+        "format": " {:>3} ",
+        "tooltip-format": "{used} GiB / {total} GiB",
+        "on-click": "foot -e btop",
+        "interval": 3
+    },
+    "battery": {
+        "format": " {icon}{capacity:>3} ",
+        "format-charging": " {capacity:>3} ",
+        "states": {
+            "warning": 40,
+            "critical": 20
+        },
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            ""
+        ]
+    },
+    "backlight": {
+        "format": " {icon} {percent:>3} ",
+        "format-icons": [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+        ],
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+    "pulseaudio": {
+        "format": " {format_source}{icon} {volume} ",
+        "format-bluetooth": " {format_source}{icon} {volume} ",
+        "format-bluetooth-muted": " {format_source}{icon}  ",
+        "format-muted": " {format_source}  ",
+        "format-source": "",
+        "format-source-muted": " ",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        },
+        "scroll-step": 5, // %, can be a float
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle"
+    },
+    "idle_inhibitor": {
+        "format": " {icon} ",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+    "network": {
+        "format": "  {bandwidthDownBytes} ",
+        "format-disconnected": "",
+        "family": "ipv4",
+        "min-length": 11,
+        "max-length": 11,
+        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\n : {bandwidthUpBytes}\n : {bandwidthDownBytes}",
+        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n : {bandwidthUpBytes}\n : {bandwidthDownBytes}",
+        "interval": 2
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 5
+    }
+}
