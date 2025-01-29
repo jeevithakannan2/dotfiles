@@ -55,6 +55,8 @@ return {
         },
         capabilities = capabilities,
       })
+
+      lspconfig.fish_lsp.setup {}
     end,
   },
 }
