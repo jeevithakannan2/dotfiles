@@ -170,8 +170,8 @@ lazyg() {
 # Git commits after latest tag
 gcomaltag() {
     tag="$(git describe --tags --abbrev=0)"
-    echo -e "\e[1;33mLatest tag -> ${tag}\n\e[0;33m\nCommits after the tag: \e[0m"
     git log "${tag}"..HEAD
+    echo -e "\e[1;33mLatest tag -> ${tag}\e[0m"
 }
 
 ssh-auth() {
