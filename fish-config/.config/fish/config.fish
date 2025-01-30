@@ -9,7 +9,7 @@ if status is-interactive
 
     fish_add_path ~/.local/bin
 
-    if grep arch /etc/os-release
+    if grep -q arch /etc/os-release
         fish_add_path /usr/lib/jvm/default/bin
     end
 end
