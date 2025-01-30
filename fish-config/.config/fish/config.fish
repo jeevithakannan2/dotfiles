@@ -1,5 +1,4 @@
 if status is-interactive
-    set -x PATH $HOME/.local/bin $PATH
     set -gx EDITOR nvim
     set -gx VISUAL code
     set -x LS_COLORS $(vivid generate catppuccin-mocha)
@@ -8,7 +7,9 @@ if status is-interactive
     set -gx XDG_STATE_HOME "$HOME/.local/state"
     set -gx XDG_CACHE_HOME "$HOME/.cache"
 
-    if grep -q arch /etc/os-release
-        set -x PATH /usr/lib/jvm/default/bin $PATH
+    fish_add_path ~/.local/bin
+
+    if grep arch /etc/os-release
+        fish_add_path /usr/lib/jvm/default/bin
     end
 end
