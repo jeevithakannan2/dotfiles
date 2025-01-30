@@ -20,9 +20,9 @@ CONFIG_DIR="$HOME/.config"
 TEMP_FILE=$(mktemp) || error_msg "Cannot create temp file"
 ESCALATION_TOOL=$(command -v doas || command -v sudo || error_msg "No escalation tool found")
 
-curl -Lo "$TEMP_FILE" "https://github.com/jeevithakannan2/dotfiles/archive/refs/tags/${VERSION}.tar.gz"
-mkdir -p "$DOTFILES"
-tar xf "$TEMP_FILE" --strip-components=1 --directory="$DOTFILES"
+#curl -Lo "$TEMP_FILE" "https://github.com/jeevithakannan2/dotfiles/archive/refs/tags/${VERSION}.tar.gz"
+#mkdir -p "$DOTFILES"
+#tar xf "$TEMP_FILE" --strip-components=1 --directory="$DOTFILES"
 cd "$DOTFILES"
 mkdir -p "$CONFIG_DIR"
 
@@ -62,10 +62,11 @@ prompt() {
     info_msg "Choose what to install"
     info_msg "1. Hypr Catppuccin"
     info_msg "2. Bash Prompt"
-    info_msg "3. QT theme Catppuccin"
-    info_msg "4. DWM Catppuccin"
-    info_msg "5. Nvim configuration"
-    info_msg "6. All of the above"
+    info_msg "3. Fish Prompt"
+    info_msg "4. QT theme Catppuccin"
+    info_msg "5. DWM Catppuccin"
+    info_msg "6. Nvim configuration"
+    info_msg "7. All of the above"
     info_msg "0. Exit"
     printf "Your choice [ 0-6 ]: "
     read -r choice
@@ -82,18 +83,22 @@ while [ "$choice" != "0" ]; do
             . ./scripts/bash-prompt.sh
             ;;
         3)
-            . ./scripts/qt-theme.sh
+            . ./scripts/fish-prompt.sh
             ;;
         4)
-            . ./scripts/dwm.sh
+            . ./scripts/qt-theme.sh
             ;;
         5)
-            . ./scripts/nvim.sh
+            . ./scripts/dwm.sh
             ;;
         6)
+            . ./scripts/nvim.sh
+            ;;
+        7)
             . ./scripts/hypr.sh
             . ./scripts/qt-theme.sh
             . ./scripts/bash-prompt.sh
+            . ./scripts/fish-prompt.sh
             . ./scripts/dwm.sh
             . ./scripts/nvim.sh
             ;;
