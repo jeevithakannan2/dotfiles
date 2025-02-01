@@ -1,7 +1,6 @@
 @import 'mocha.css';
 
 * {
-    color: @text;
     font-family: "Symbols Nerd Font Mono";
     font-size: 15px;
 }
@@ -24,6 +23,34 @@ window#waybar {
     background: rgba(0, 0, 0, 0.5);
 }
 
+#workspaces button:nth-child(1) {
+    color: @red;
+}
+
+#workspaces button:nth-child(2) {
+    color: @yellow;
+}
+
+#workspaces button:nth-child(3) {
+    color: @blue;
+}
+
+#workspaces button:nth-child(4) {
+    color: @white;
+}
+
+#workspaces button:nth-child(5) {
+    color: @lavender;
+}
+
+#workspaces button:nth-child(6) {
+    color: @green;
+}
+
+#workspaces button.empty {
+    color: @overlay0;
+}
+
 #clock,
 #window,
 #custom-weather,
@@ -40,7 +67,7 @@ window#waybar {
 }
 
 #window {
-    color: @red;
+    color: @white;
 }
 
 window#waybar.empty #window {
