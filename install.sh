@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-VERSION="v1.4.1"
+VERSION="v1.4.2"
 
 error_msg() {
     printf "\033[1;31m%s\033[0m\n" "$1"
@@ -20,9 +20,9 @@ CONFIG_DIR="$HOME/.config"
 TEMP_FILE=$(mktemp) || error_msg "Cannot create temp file"
 ESCALATION_TOOL=$(command -v doas || command -v sudo || error_msg "No escalation tool found")
 
-#curl -Lo "$TEMP_FILE" "https://github.com/jeevithakannan2/dotfiles/archive/refs/tags/${VERSION}.tar.gz"
-#mkdir -p "$DOTFILES"
-#tar xf "$TEMP_FILE" --strip-components=1 --directory="$DOTFILES"
+curl -Lo "$TEMP_FILE" "https://github.com/jeevithakannan2/dotfiles/archive/refs/tags/${VERSION}.tar.gz"
+mkdir -p "$DOTFILES"
+tar xf "$TEMP_FILE" --strip-components=1 --directory="$DOTFILES"
 cd "$DOTFILES"
 mkdir -p "$CONFIG_DIR"
 
