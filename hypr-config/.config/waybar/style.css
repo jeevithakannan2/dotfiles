@@ -32,19 +32,19 @@ window#waybar {
 }
 
 #workspaces button:nth-child(3) {
-    color: @blue;
+    color: @peach;
 }
 
 #workspaces button:nth-child(4) {
-    color: @white;
+    color: @blue;
 }
 
 #workspaces button:nth-child(5) {
-    color: @lavender;
+    color: @green;
 }
 
 #workspaces button:nth-child(6) {
-    color: @green;
+    color: @lavender;
 }
 
 #workspaces button.empty {
