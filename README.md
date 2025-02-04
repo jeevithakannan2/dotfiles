@@ -2,7 +2,10 @@
 
 My personal dot files with installer for easy installation.
 
-Hyprland Preview
+> [!WARNING]
+> DWM config is depreciated and no longer maintained. It will be removed in **v1.7.0**
+
+## 🖼️ Hyprland Preview
 
 ![Preview](/.github/desktop.png)
 ![Preview](/.github/terminal.png)
