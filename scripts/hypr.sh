@@ -9,7 +9,7 @@ install_deps() {
     fi
     paru
     paru -S --needed --noconfirm hyprland xdg-desktop-portal-hyprland hyprpolkitagent hyprpaper hyprlock hyprshot hypridle \
-        wlogout wttrbar waybar-module-pacman-updates-git foot waybar wofi cliphist mako
+        wlogout wttrbar waybar-module-pacman-updates-git foot waybar wofi cliphist mako socat
     success_msg "Successfully installed dependencies !!"
 }
 
