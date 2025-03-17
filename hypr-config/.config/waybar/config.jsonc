@@ -79,7 +79,7 @@
         "on-scroll-down": "hyprctl dispatch workspace m-1"
     },
     "hyprland/window": {
-        "format": " {initialTitle} ",
+        "format": " {initialClass} ",
         "icon": true
     },
     // https://github.com/bjesus/wttrbar
