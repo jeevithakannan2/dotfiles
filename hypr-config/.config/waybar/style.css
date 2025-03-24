@@ -14,9 +14,9 @@ window#waybar {
 #workspaces,
 #window,
 #custom-weather,
-#hardware,
-#configurable,
-#idle_inhibitor,
+#system_metrics,
+#device_control,
+#user_interaction,
 #network,
 #tray {
     border-radius: 10px 10px 10px 10px;
@@ -54,9 +54,9 @@ window#waybar {
 #clock,
 #window,
 #custom-weather,
-#hardware,
-#configurable,
-#idle_inhibitor,
+#system_metrics,
+#device_control,
+#user_interaction,
 #tray {
     padding-left: 7.5px;
     padding-right: 7.5px;
@@ -143,6 +143,18 @@ window#waybar.empty #window {
 
 #idle_inhibitor {
     color: @flamingo;
+}
+
+#power-profiles-daemon.performance {
+    color: @red;
+}
+
+#power-profiles-daemon.balanced {
+    color: @yellow;
+}
+
+#power-profiles-daemon.power-saver {
+    color: @green;
 }
 
 #network {

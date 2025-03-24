@@ -12,13 +12,13 @@
     ],
     "modules-right": [
         "custom/weather",
-        "group/hardware",
-        "group/configurable",
-        "idle_inhibitor",
+        "group/system_metrics",
+        "group/device_control",
+        "group/user_interaction",
         "network",
         "tray"
     ],
-    "group/hardware": {
+    "group/system_metrics": {
         "orientation": "inherit",
         "modules": [
             "temperature",
@@ -27,11 +27,18 @@
             "battery"
         ]
     },
-    "group/configurable": {
+    "group/device_control": {
         "orientation": "inherit",
         "modules": [
             "backlight",
             "pulseaudio"
+        ]
+    },
+    "group/user_interaction": {
+        "orientation": "inherit",
+        "modules": [
+            "idle_inhibitor",
+            "power-profiles-daemon"
         ]
     },
     "clock": {
@@ -176,6 +183,19 @@
         "format-icons": {
             "activated": "",
             "deactivated": ""
+        }
+    },
+    "power-profiles-daemon": {
+        "format": " {icon} ",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        // TODO if https://github.com/Alexays/Waybar/pull/3994 is merged above line should be replaced with below.
+        // "tooltip-format": "Power profile: {profile}\nCPU driver: {cpu_driver}\nPlatform driver: {platform_driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
         }
     },
     "network": {
