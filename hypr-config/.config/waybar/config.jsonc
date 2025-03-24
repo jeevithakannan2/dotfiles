@@ -12,13 +12,13 @@
     ],
     "modules-right": [
         "custom/weather",
-        "group/hardware",
-        "group/configurable",
-        "group/interactive",
+        "group/system_metrics",
+        "group/device_control",
+        "group/user_interaction",
         "network",
         "tray"
     ],
-    "group/hardware": {
+    "group/system_metrics": {
         "orientation": "inherit",
         "modules": [
             "temperature",
@@ -27,14 +27,14 @@
             "battery"
         ]
     },
-    "group/configurable": {
+    "group/device_control": {
         "orientation": "inherit",
         "modules": [
             "backlight",
             "pulseaudio"
         ]
     },
-    "group/interactive": {
+    "group/user_interaction": {
         "orientation": "inherit",
         "modules": [
             "idle_inhibitor",

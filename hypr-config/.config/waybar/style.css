@@ -14,9 +14,9 @@ window#waybar {
 #workspaces,
 #window,
 #custom-weather,
-#hardware,
-#configurable,
-#interactive,
+#system_metrics,
+#device_control,
+#user_interaction,
 #network,
 #tray {
     border-radius: 10px 10px 10px 10px;
@@ -54,9 +54,9 @@ window#waybar {
 #clock,
 #window,
 #custom-weather,
-#hardware,
-#configurable,
-#interactive,
+#system_metrics,
+#device_control,
+#user_interaction,
 #tray {
     padding-left: 7.5px;
     padding-right: 7.5px;
