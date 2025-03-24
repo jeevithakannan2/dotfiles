@@ -188,6 +188,8 @@
     "power-profiles-daemon": {
         "format": " {icon} ",
         "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        // TODO if https://github.com/Alexays/Waybar/pull/3994 is merged above line should be replaced with below.
+        // "tooltip-format": "Power profile: {profile}\nCPU driver: {cpu_driver}\nPlatform driver: {platform_driver}",
         "tooltip": true,
         "format-icons": {
             "default": "",
