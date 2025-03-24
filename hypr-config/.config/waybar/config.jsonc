@@ -14,7 +14,7 @@
         "custom/weather",
         "group/hardware",
         "group/configurable",
-        "idle_inhibitor",
+        "group/interactive",
         "network",
         "tray"
     ],
@@ -32,6 +32,13 @@
         "modules": [
             "backlight",
             "pulseaudio"
+        ]
+    },
+    "group/interactive": {
+        "orientation": "inherit",
+        "modules": [
+            "idle_inhibitor",
+            "power-profiles-daemon"
         ]
     },
     "clock": {
@@ -176,6 +183,17 @@
         "format-icons": {
             "activated": "",
             "deactivated": ""
+        }
+    },
+    "power-profiles-daemon": {
+        "format": " {icon} ",
+        "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
         }
     },
     "network": {
