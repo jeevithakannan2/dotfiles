@@ -109,13 +109,13 @@
     },
     "cpu": {
         "format": "  {usage} ",
-        "on-click": "foot -e htop",
+        "on-click": "$TERMINAL -e htop",
         "interval": 3
     },
     "memory": {
         "format": " {:>3} ",
         "tooltip-format": "{used} GiB / {total} GiB",
-        "on-click": "foot -e btop",
+        "on-click": "$TERMINAL -e btop",
         "interval": 3
     },
     "battery": {
