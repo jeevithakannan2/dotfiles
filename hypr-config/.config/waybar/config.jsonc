@@ -87,6 +87,7 @@
     },
     "hyprland/window": {
         "format": " {title} ",
+        "max-length": 50,
         "icon": true
     },
     // https://github.com/bjesus/wttrbar
