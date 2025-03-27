@@ -1,0 +1,43 @@
+[general]
+live_config_reload = true
+
+import = [ 
+  "~/.config/alacritty/mocha.toml",
+]
+
+[window]
+title = "Alacritty"
+decorations = "none"
+blur = true
+opacity = 0.75
+
+[window.dimensions]
+columns = 160
+lines = 80
+
+[cursor.style]
+shape = "Beam"
+blinking = "Always"
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal.family = "JetBrains Mono Nerd Font Mono"
+normal.style = "Regular"
+size = 13.5 # Prevents bottom padding in nvim https://github.com/alacritty/alacritty/issues/8313
+
+[font.bold]
+family = "JetBrains Mono Nerd Font Mono"
+style = "Bold"
+
+[font.italic]
+family = "JetBrains Mono Nerd Font Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "JetBrains Mono Nerd Font Mono"
+style = "Bold Italic"
