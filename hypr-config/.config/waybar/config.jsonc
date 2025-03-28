@@ -103,7 +103,7 @@
         "format-warning": "  {temperatureC} ",
         "format-critical": "  {temperatureC} ",
         "thermal-zone": 7, // Check with: # cat /sys/class/hwmon/hwmon*/temp1_input
-        "hwmon-path": "/sys/class/hwmon/hwmon7/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
         "warning-threshold": 75,
         "critical-threshold": 90,
         "interval": 3
