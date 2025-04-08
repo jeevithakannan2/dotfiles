@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-VERSION="v1.5.2"
+VERSION="v1.5.3"
 
 error_msg() {
     printf "\033[1;31m%s\033[0m\n" "$1"
