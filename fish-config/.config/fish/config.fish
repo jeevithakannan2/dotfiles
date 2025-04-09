@@ -12,7 +12,7 @@ if status is-interactive
     fish_add_path "$HOME/.cargo/bin"
 
     # Set the java home variable if java is installed
-    if command -q java >/dev/null
+    if command -q java
         set -gx JAVA_HOME $(dirname $(command -v java))
 
         # If arch then add the jvm bin to path 
@@ -20,5 +20,9 @@ if status is-interactive
         if grep -q arch /etc/os-release
             fish_add_path /usr/lib/jvm/default/bin
         end
+    end
+
+    if command -q npm || command -q yarn
+        set -gx npm_config_prefix "$HOME/.local"
     end
 end
