@@ -11,7 +11,14 @@ if status is-interactive
     fish_add_path "$HOME/.local/bin"
     fish_add_path "$HOME/.cargo/bin"
 
-    if grep -q arch /etc/os-release
-        fish_add_path /usr/lib/jvm/default/bin
+    # Set the java home variable if java is installed
+    if command -q java >/dev/null
+        set -gx JAVA_HOME $(dirname $(command -v java))
+
+        # If arch then add the jvm bin to path 
+        # Because keytool, jlink are not available in path by default
+        if grep -q arch /etc/os-release
+            fish_add_path /usr/lib/jvm/default/bin
+        end
     end
 end
