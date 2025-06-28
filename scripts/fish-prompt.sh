@@ -8,7 +8,9 @@ if ! command -v paru >/dev/null; then
     makepkg -si --noconfirm
 fi
 
-paru -S --needed --noconfirm fish eza bat ripgrep starship fastfetch zoxide vivid crabfetch
+paru -S --needed --noconfirm fish eza bat ripgrep starship fastfetch zoxide vivid pkgfile trash-cli
+
+"$ESCALATION_TOOL" pkgfile --update
 
 cd "$DOTFILES" || exit 1
 
