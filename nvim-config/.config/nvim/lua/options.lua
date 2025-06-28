@@ -13,7 +13,7 @@ vim.g.have_nerd_font = true
 
 -- Sync clipboard with OS
 vim.schedule(function()
-    vim.opt.clipboard = "unnamedplus"
+  vim.opt.clipboard = "unnamedplus"
 end)
 
 -- Make the numbers appear next to line
