@@ -31,11 +31,7 @@ return {
       })
 
       local lspconfig = require("lspconfig")
-      require("mason-lspconfig").setup_handlers({
-        function(server)
-          lspconfig[server].setup {}
-        end,
-      })
+      require("mason-lspconfig").setup()
 
       -- Custom setup for lua ls
       lspconfig.lua_ls.setup({
