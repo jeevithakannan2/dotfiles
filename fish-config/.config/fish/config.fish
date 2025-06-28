@@ -8,6 +8,11 @@ if status is-interactive
     set -gx XDG_STATE_HOME "$HOME/.local/state"
     set -gx XDG_CACHE_HOME "$HOME/.cache"
 
+    # Set SSH_AUTH_SOCK to gcr if gcr-4 and gnome-keyring is configured
+    if test -e "$XDG_RUNTIME_DIR/gcr/ssh"
+        set -gx SSH_AUTH_SOCK "$XDG_RUNTIME_DIR/gcr/ssh"
+    end
+
     fish_add_path "$HOME/.local/bin"
     fish_add_path "$HOME/.cargo/bin"
 
