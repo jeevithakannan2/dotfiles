@@ -2,3 +2,4 @@ allow_images=true
 layer=overlay
 width=560
 height=400
+insensitive=true
