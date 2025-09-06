@@ -43,7 +43,7 @@ install_deps() {
     done
 
     paru -S --needed --noconfirm hyprland xdg-desktop-portal-hyprland hyprpolkitagent hyprpaper waylock hyprshot hypridle \
-        wlogout wttrbar waybar-module-pacman-updates-git waybar wofi cliphist mako socat power-profiles-daemon "$pkg"
+        wlogout wttrbar waybar-module-pacman-updates-git waybar wofi wl-clip-persist cliphist mako socat power-profiles-daemon "$pkg"
     success_msg "Successfully installed dependencies !!"
 }
 
