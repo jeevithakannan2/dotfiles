@@ -89,17 +89,13 @@ while [ "$choice" != "0" ]; do
             . ./scripts/qt-theme.sh
             ;;
         5)
-            . ./scripts/dwm.sh
-            ;;
-        6)
             . ./scripts/nvim.sh
             ;;
-        7)
+        6)
             . ./scripts/hypr.sh
             . ./scripts/qt-theme.sh
             . ./scripts/bash-prompt.sh
             . ./scripts/fish-prompt.sh
-            . ./scripts/dwm.sh
             . ./scripts/nvim.sh
             ;;
         *)
