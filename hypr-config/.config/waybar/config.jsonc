@@ -101,6 +101,9 @@
     "temperature": {
         "format": "  {temperatureC} ",
         "format-warning": "  {temperatureC} ",
+                // Prevent crash on scroll https://github.com/Alexays/Waybar/issues/4510
+        "on-scroll-up": "true",
+        "on-scroll-down": "true",
         "format-critical": "  {temperatureC} ",
         "thermal-zone": 7, // Check with: # cat /sys/class/hwmon/hwmon*/temp1_input
         "hwmon-path": "/sys/class/hwmon/hwmon1/temp1_input",
@@ -111,12 +114,18 @@
     "cpu": {
         "format": "  {usage} ",
         "on-click": "$TERMINAL -e htop",
+                // Prevent crash on scroll https://github.com/Alexays/Waybar/issues/4510
+        "on-scroll-up": "true",
+        "on-scroll-down": "true",
         "interval": 3
     },
     "memory": {
         "format": " {:>3} ",
         "tooltip-format": "{used} GiB / {total} GiB",
         "on-click": "$TERMINAL -e btop",
+                // Prevent crash on scroll https://github.com/Alexays/Waybar/issues/4510
+        "on-scroll-up": "true",
+        "on-scroll-down": "true",
         "interval": 3
     },
     "battery": {
@@ -126,6 +135,9 @@
             "warning": 40,
             "critical": 20
         },
+                // Prevent crash on scroll https://github.com/Alexays/Waybar/issues/4510
+        "on-scroll-up": "true",
+        "on-scroll-down": "true",
         "format-icons": [
             "",
             "",
@@ -158,8 +170,8 @@
     "pulseaudio": {
         "format": " {format_source}{icon} {volume} ",
         "format-bluetooth": " {format_source}{icon} {volume} ",
-        "format-bluetooth-muted": " {format_source}{icon}  ",
-        "format-muted": " {format_source}  ",
+        "format-bluetooth-muted": " {format_source}{icon}  ",
+        "format-muted": " {format_source}  ",
         "format-source": "",
         "format-source-muted": " ",
         "format-icons": {
@@ -181,6 +193,9 @@
     },
     "idle_inhibitor": {
         "format": " {icon} ",
+                // Prevent crash on scroll https://github.com/Alexays/Waybar/issues/4510
+        "on-scroll-up": "true",
+        "on-scroll-down": "true",
         "format-icons": {
             "activated": "",
             "deactivated": ""
@@ -192,6 +207,9 @@
         // TODO if https://github.com/Alexays/Waybar/pull/3994 is merged above line should be replaced with below.
         // "tooltip-format": "Power profile: {profile}\nCPU driver: {cpu_driver}\nPlatform driver: {platform_driver}",
         "tooltip": true,
+        // Prevent crash on scroll https://github.com/Alexays/Waybar/issues/4510
+        "on-scroll-up": "true",
+        "on-scroll-down": "true",
         "format-icons": {
             "default": "",
             "performance": "",
