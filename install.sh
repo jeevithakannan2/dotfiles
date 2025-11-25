@@ -66,7 +66,7 @@ prompt() {
     info_msg "2. Bash Prompt"
     info_msg "3. Fish Prompt"
     info_msg "4. QT theme Catppuccin"
-    info_msg "5. DWM Catppuccin"
+    info_msg "5. GTK theme Catppuccin"
     info_msg "6. Nvim configuration"
     info_msg "7. All of the above"
     info_msg "0. Exit"
@@ -91,11 +91,15 @@ while [ "$choice" != "0" ]; do
             . ./scripts/qt-theme.sh
             ;;
         5)
-            . ./scripts/nvim.sh
+            . ./scripts/gtk-theme.sh
             ;;
         6)
+            . ./scripts/nvim.sh
+            ;;
+        7)
             . ./scripts/hypr.sh
             . ./scripts/qt-theme.sh
+            . ./scripts/gtk-theme.sh
             . ./scripts/bash-prompt.sh
             . ./scripts/fish-prompt.sh
             . ./scripts/nvim.sh
