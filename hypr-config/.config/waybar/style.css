@@ -1,17 +1,14 @@
 @import 'mocha.css';
-
 * {
     font-family: "Symbols Nerd Font Mono";
     font-size: 15px;
+    padding: 2.5px 2.5px 2.5px 2.5px;
 }
-
 /* The total waybar not the modules */
 window#waybar {
     background: transparent;
 }
-
 #clock,
-#workspaces,
 #window,
 #custom-weather,
 #system_metrics,
@@ -21,6 +18,33 @@ window#waybar {
 #tray {
     border-radius: 10px 10px 10px 10px;
     background: rgba(0, 0, 0, 0.5);
+}
+
+#workspaces {
+    padding: 0px 0px; 
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#workspaces button {
+    padding: 0px 10px; 
+    border-radius: 10px; 
+    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.68); 
+}
+
+#workspaces button.active {
+    padding: 0px 20px; 
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.68);
+}
+
+#workspaces button:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b; /* TODO change the color to catppuccin scheme */
 }
 
 #workspaces button:nth-child(1) {
@@ -61,56 +85,44 @@ window#waybar {
     padding-left: 7.5px;
     padding-right: 7.5px;
 }
-
 #clock {
     color: @lavender;
 }
-
 #window {
     color: @white;
 }
-
 window#waybar.empty #window {
     color: transparent;
     background: transparent;
 }
-
 #temperature {
     color: @teal;
 }
-
 #temperature.critical {
     color: @maroon;
 }
-
 #cpu {
     color: @green;
 }
-
 #memory {
     color: @maroon;
 }
-
 #battery {
     color: @lavender;
 }
-
 #battery.charging {
     color: @green;
 }
-
 @keyframes w-blink {
     to {
         color: @lavender;
     }
 }
-
 @keyframes c-blink {
     to {
         color: @yellow;
     }
 }
-
 #battery.warning:not(.charging) {
     color: @yellow;
     animation-name: w-blink;
@@ -119,7 +131,6 @@ window#waybar.empty #window {
     animation-iteration-count: 20;
     animation-direction: alternate;
 }
-
 #battery.critical:not(.charging) {
     color: @red;
     animation-name: c-blink;
@@ -128,39 +139,30 @@ window#waybar.empty #window {
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
-
 #backlight {
     color: @yellow;
 }
-
 #pulseaudio {
     color: @pink;
 }
-
 #pulseaudio.muted {
     color: @overlay0;
 }
-
 #idle_inhibitor {
     color: @flamingo;
 }
-
 #power-profiles-daemon.performance {
     color: @red;
 }
-
 #power-profiles-daemon.balanced {
     color: @yellow;
 }
-
 #power-profiles-daemon.power-saver {
     color: @green;
 }
-
 #network {
     color: @green;
 }
-
 #network.disabled,
 #network.disconnected {
     color: @red;
