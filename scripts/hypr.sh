@@ -45,6 +45,17 @@ install_deps() {
     paru -S --needed --noconfirm hyprland xdg-desktop-portal-hyprland hyprpolkitagent hyprpaper waylock hyprshot hypridle \
         wlogout wttrbar waybar-module-pacman-updates-git waybar wofi wl-clip-persist cliphist mako socat power-profiles-daemon "$pkg"
     success_msg "Successfully installed dependencies !!"
+
+    mkdir "$HOME/.local/share/icons"
+
+    curl -L -o rose-pine-hyprcursor.tar.gz https://github.com/ndom91/rose-pine-hyprcursor/releases/download/v0.3.2/rose-pine-cursor-hyprcursor_0.3.2.tar.gz
+    mkdir rose-pine-hyprcursor
+    tar xf rose-pine-hyprcursor.tar.gz -C rose-pine-hyprcursor
+    cp -r rose-pine-hyprcursor "$HOME/.local/share/icons"
+
+    curl -L -O https://github.com/rose-pine/cursor/releases/download/v1.1.0/BreezeX-RosePine-Linux.tar.xz
+    tar xf BreezeX-RosePine-Linux.tar.xz
+    cp -r BreezeX-RosePine-Linux "$HOME/.local/share/icons"
 }
 
 if ! install_deps; then
