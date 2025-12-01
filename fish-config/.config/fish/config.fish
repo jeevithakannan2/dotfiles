@@ -3,10 +3,6 @@ if status is-interactive
     set -gx VISUAL nvim
     set -gx MAKEFLAGS -j$(nproc)
     set -gx LS_COLORS $(vivid generate catppuccin-mocha)
-    set -gx XDG_DATA_HOME "$HOME/.local/share"
-    set -gx XDG_CONFIG_HOME "$HOME/.config"
-    set -gx XDG_STATE_HOME "$HOME/.local/state"
-    set -gx XDG_CACHE_HOME "$HOME/.cache"
 
     # Set SSH_AUTH_SOCK to gcr if gcr-4 and gnome-keyring is configured
     if test -e "$XDG_RUNTIME_DIR/gcr/ssh"
